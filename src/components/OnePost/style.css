@@ -1,0 +1,41 @@
+.container-one-post {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.mb-3 {
+    margin-bottom: 2rem;
+}
+
+.mt-3 {
+    margin-top: 2rem;
+}
+
+.img-post-individual {
+    width: 75%;
+}
+
+.post-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--sexagenary-color);
+}
+
+.post-content-one-post {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+    text-indent: 50px;
+    color: var(--quinquenary-color);
+}
+
+.post-date {
+    color: #5e5b5b;
+    font-size: 0.9em;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}

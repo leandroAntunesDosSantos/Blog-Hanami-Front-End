@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CO:wght@100..400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #e4ebeb;
+    --secondary-color: #e0e0e0;
+    --tertiary-color: #f10fb8;
+    --quaternary-color: #f8cd20;
+    --quinquenary-color: #000;
+    --sexagenary-color: #008000FF;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: unset;
+}
+
+html, body {
+    font-family: 'Noto Serif JP', serif;
+    background-color: #e8e8e8;
+    color: #fff;
+}
+
+body section {
+    min-height: 960px;
+}
+
+/* Configurações do cabeçalho da aplicação */
+header {
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 7px rgba(250, 22, 201, 0.25);
+}
+
+/* Limita a largura no body e centraliza */
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* Estilo para o artigo de boas-vindas */
+.article-welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: "Playwrite CO", cursive;
+}
+
+/* Consultas de mídia para responsividade */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .article-welcome {
+        margin: 15px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .article-welcome {
+        margin: 10px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .article-welcome {
+        margin: 5px;
+        padding: 5px;
+        font-size: 14px;
+    }
+}
+
+
+

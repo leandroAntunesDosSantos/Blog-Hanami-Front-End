@@ -1,0 +1,129 @@
+.post-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    margin: 4rem auto;
+    max-width: 1240px;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+.post-section {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+}
+
+.post-input-title, .post-input-content {
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.post-input-content {
+    min-height: 200px;
+}
+
+.post-button, .post-edit-button, .post-delete-button, .cancel-button {
+    background-color: #2961ca;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.cancel-button {
+    background-color: #6c757d;
+}
+
+.post-edit-button {
+    background-color: #1a8587;
+}
+
+.post-delete-button {
+    background-color: #ff0000;
+}
+
+button:hover {
+    opacity: .6;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-content-type {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+}
+
+.img-post {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.post-content-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+}
+
+.content-color {
+    color: var(--tertiary-color);
+}
+
+.content-data-postagem {
+    font-size: 0.9 rem;
+    color: #9e9e9e;
+    margin-top: 2.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+    .post-container {
+        flex-direction: row;
+    }
+
+    .post-section {
+        width: 48%;
+    }
+}
+
+@media (max-width: 767px) {
+    .post-container {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+
+    .post-section {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .post-content-type {
+        margin: 1rem 0;
+    }
+}

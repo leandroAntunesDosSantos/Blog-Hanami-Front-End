@@ -1,0 +1,63 @@
+.contact-container {
+    text-align: center; /* Centraliza todo o conteúdo */
+    padding: 0 1rem; /* Padding para os lados */
+}
+
+h1 {
+    color: var(--tertiary-color);
+    margin-bottom: 35px;
+    margin-top: 35px;
+    font-size: 45px;
+}
+
+.contact-person {
+    display: inline-block;
+    width: 250px; /* Largura do box de cada pessoa */
+    background-color: #f9f9f9; /* Cor de fundo do box */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--tertiary-color); /* Sombra suave */
+    vertical-align: top; /* Alinhamento vertical para inline-block */
+}
+
+.contact-person h2 {
+    font-family: 'Arial', sans-serif; /* Estilo moderno para o nome */
+    color: var(--tertiary-color); /* Cor do texto */
+    margin-bottom: 10px; /* Espaçamento abaixo do nome */
+}
+
+.social-icons {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os ícones verticalmente */
+}
+
+.social-icons li {
+    margin: 10px 0; /* Espaçamento entre os ícones */
+}
+
+.social-icons a {
+    color: #333; /* Cor do texto dos links */
+    text-decoration: none; /* Remove sublinhado dos links */
+    transition: color 0.3s; /* Transição suave na cor ao passar o mouse */
+}
+
+.social-icons a:hover {
+    color: var(--tertiary-color); /* Cor ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 767px) {
+    .contact-person {
+        width: 100%; /* Ocupar toda a largura da tela */
+        margin-bottom: 20px; /* Espaçamento abaixo de cada pessoa */
+    }
+
+    h1 {
+        font-size: 35px; /* Diminuir o tamanho do título em telas menores */
+    }
+}

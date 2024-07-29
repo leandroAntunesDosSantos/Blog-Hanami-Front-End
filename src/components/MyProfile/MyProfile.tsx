@@ -27,7 +27,7 @@ export default function MyProfile() {
 
   useEffect(() => {
     axios
-      .get("https://repositorio-privado-java-backend.onrender.com/listarPostagens")
+      .get("https://repositorio-privado-java-backend-production.up.railway.app/listarPostagens")
       .then((response) => {
         const sortedPosts = response.data.sort((a: { dataPostagem: string | number | Date; }, b: { dataPostagem: string | number | Date; }) => {
           return (
@@ -53,7 +53,7 @@ export default function MyProfile() {
       confirmButtonText: "Sim, deletar!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete("https://repositorio-privado-java-backend.onrender.com/deletarPostagem/" + id)
+        axios.delete("https://repositorio-privado-java-backend-production.up.railway.app/deletarPostagem/" + id)
             .then(() => {
                 const newList = buscarPostagens.filter((item) => item.codigo !== Number(id));
                 setBuscarPostagens(newList);
@@ -79,7 +79,7 @@ export default function MyProfile() {
 
   function salvarEdicao() {
     axios
-      .put("https://repositorio-privado-java-backend.onrender.com/atualizarPostagem", {
+      .put("https://repositorio-privado-java-backend-production.up.railway.app/atualizarPostagem", {
         codigo: editingId,
         titulo: title,
         conteudo: content,
@@ -114,7 +114,7 @@ export default function MyProfile() {
 
   function cliqueiNoBotao() {
     axios
-      .post("https://repositorio-privado-java-backend.onrender.com/criarPostagem", {
+      .post("https://repositorio-privado-java-backend-production.up.railway.app/criarPostagem", {
         titulo: title,
         conteudo: content,
       })

@@ -20,7 +20,7 @@ export default function OnePost() {
 
   useEffect(() => {
     axios
-      .get(`https://repositorio-privado-java-backend.onrender.com/postagem/${postId}`)
+      .get(`https://repositorio-privado-java-backend-production.up.railway.app/postagem/${postId}`)
       .then((response) => {
         setPostagem(response.data);
       })

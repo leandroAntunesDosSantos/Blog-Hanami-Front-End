@@ -15,7 +15,7 @@ export default function AllPosts() {
   const [buscarPostagens, setBuscarPostagens] = useState<Postagem[]>([]);
 
   useEffect(() => {
-    axios.get("https://repositorio-privado-java-backend.onrender.com/listarPostagens").then((response) => {
+    axios.get("https://repositorio-privado-java-backend-production.up.railway.app/listarPostagens").then((response) => {
       const sortedPosts = response.data.sort((a: Postagem, b: Postagem) => {
         return (
           new Date(b.dataPostagem).getTime() -

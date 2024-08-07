@@ -99,5 +99,10 @@ header {
     }
 }
 
+@media (min-width: 700px) {
+    .container{
+        min-height: 850px;
+    }
+}
 
 

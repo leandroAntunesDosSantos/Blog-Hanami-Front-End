@@ -5,26 +5,29 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { parseISO, format } from "date-fns";
 
-interface Postagem {
-  codigo: number;
+interface Feed {
+  postagemId: number;
   titulo: string;
   conteudo: string;
   dataPostagem: string;
+  nomeUsuario: string;
 }
 export default function AllPosts() {
-  const [buscarPostagens, setBuscarPostagens] = useState<Postagem[]>([]);
+  const [buscarPostagens, setBuscarPostagens] = useState<Feed[]>([]);
 
   useEffect(() => {
-    axios.get("https://repositorio-privado-java-backend-production.up.railway.app/listarPostagens").then((response) => {
-      const sortedPosts = response.data.sort((a: Postagem, b: Postagem) => {
-        return (
-          new Date(b.dataPostagem).getTime() -
-          new Date(a.dataPostagem).getTime()
-        );
+    axios
+      .get("https://auth-blog2-789b7266498f.herokuapp.com/feed")
+      .then((response) => {
+        setBuscarPostagens(response.data.feedItems);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-      setBuscarPostagens(sortedPosts);
-    });
   }, []);
+
+
+
 
   const formatarData = (dataISO: string) => {
     const dataConvertida = parseISO(dataISO);
@@ -38,27 +41,26 @@ export default function AllPosts() {
       </h1>
       <div className="dsc-catalog-cards mb20 mt20">
         {buscarPostagens &&
-          buscarPostagens.map(({ codigo, titulo, conteudo, dataPostagem }) => (
-            <Link to={`/onePostHome/${codigo}`} key={codigo}>
+          buscarPostagens.map(({ postagemId, titulo, conteudo, dataPostagem,nomeUsuario }) => (
+            <Link to={`/onePostHome/${postagemId}`} key={postagemId}>
               <div className="dsc-card">
                 <div className="dsc-catalog-card-top">
                   <img src={capaPost} alt="Capa do Post" />
                 </div>
-                <div className="dsc-catalog-card-bottom">
-                  <h3>{titulo}</h3>
-                  <p>{conteudo.slice(0, 100)}...</p>
-                  <div className="postado-em">
-                    <span className="data-publicacao">Publicado em: </span>
-                    <span className="data-publicacao">
-                      {formatarData(dataPostagem)}
-                    </span>
+                  <div className="dsc-catalog-card-bottom">
+                      <h3>{titulo}</h3>
+                      <p>{conteudo.slice(0, 100)}...</p>
+                      <div className="postado-em">
+                          <span className="data-publicacao">{formatarData(dataPostagem)}</span>
+                          <span className="data-publicacao">{nomeUsuario} </span>
+                      </div>
+
                   </div>
-                </div>
               </div>
             </Link>
           ))}
       </div>
-      <div className="dsc-btn-next-page">Carregar mais</div>
+        <div className="dsc-btn-next-page">Carregar mais</div>
     </main>
   );
 }

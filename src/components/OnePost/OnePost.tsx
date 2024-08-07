@@ -5,22 +5,23 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { parseISO, format } from "date-fns";
 
-interface Postagem {
-  codigo: number;
+interface Feed {
+  postagemId: number;
   titulo: string;
   conteudo: string;
   dataPostagem: string;
+  nomeUsuario: string;
 }
 
 export default function OnePost() {
-  const [postagem, setPostagem] = useState<Postagem | null>(null);
+  const [postagem, setPostagem] = useState<Feed | null>(null);
 
   const params = useParams();
   const postId = Number(params.postId);
 
   useEffect(() => {
     axios
-      .get(`https://repositorio-privado-java-backend-production.up.railway.app/postagem/${postId}`)
+      .get(`https://auth-blog2-789b7266498f.herokuapp.com/feed/${postId}`)
       .then((response) => {
         setPostagem(response.data);
       })
@@ -51,6 +52,9 @@ export default function OnePost() {
               <p className={"post-content-one-post"}>{postagem.conteudo}</p>
               <p className={"post-date"}>
                 Publicado em: {formatarData(postagem.dataPostagem)}
+              </p>
+              <p className={"post-date"}>
+                Criado por: {postagem.nomeUsuario}
               </p>
             </div>
           </div>

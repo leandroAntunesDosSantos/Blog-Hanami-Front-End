@@ -34,8 +34,15 @@
 .post-date {
     color: #5e5b5b;
     font-size: 0.9em;
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: end;
+}
+
+@media (min-width: 700px) {
+    .container-one-post{
+        min-height: 850px;
+
+    }
 }

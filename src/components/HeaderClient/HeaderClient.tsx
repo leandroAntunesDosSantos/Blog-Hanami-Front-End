@@ -37,7 +37,7 @@ export default function HeaderClient() {
                         <Link to={"/contact"} onClick={() => setIsMenuOpen(false)}>Contato</Link>
                     </li>
                     <li className={"login-btn"}>
-                        <Link to={"/profile"} onClick={() => setIsMenuOpen(false)}>Login</Link>
+                        <Link to={"/login"} onClick={() => setIsMenuOpen(false)}>Login</Link>
                     </li>
                 </ul>
             </nav>

@@ -9,8 +9,8 @@ import { format, parseISO } from "date-fns"; // Importar o format e parseISO
 const MySwal = withReactContent(Swal);
 
 
-interface Postagem {
-  codigo: number;
+interface PostByUser {
+  postagemId: number;
   titulo: string;
   conteudo: string;
   dataPostagem: string;
@@ -19,7 +19,7 @@ interface Postagem {
 
 
 export default function MyProfile() {
-  const [buscarPostagens, setBuscarPostagens] = useState<Postagem[]>([]);
+  const [buscarPostagens, setBuscarPostagens] = useState<PostByUser[]>([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -27,14 +27,13 @@ export default function MyProfile() {
 
   useEffect(() => {
     axios
-      .get("https://repositorio-privado-java-backend-production.up.railway.app/listarPostagens")
+      .get("http://localhost:8080/postsByUser")
       .then((response) => {
-        const sortedPosts = response.data.sort((a: { dataPostagem: string | number | Date; }, b: { dataPostagem: string | number | Date; }) => {
-          return (
+        const sortedPosts = response.data.feedItems.sort(
+          (a: PostByUser, b: PostByUser) =>
             new Date(b.dataPostagem).getTime() -
             new Date(a.dataPostagem).getTime()
-          );
-        });
+        );
         setBuscarPostagens(sortedPosts);
       })
       .catch((error) => {
@@ -53,9 +52,9 @@ export default function MyProfile() {
       confirmButtonText: "Sim, deletar!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete("https://repositorio-privado-java-backend-production.up.railway.app/deletarPostagem/" + id)
+        axios.delete("http://localhost:8080/deletarPostagem/" + id)
             .then(() => {
-                const newList = buscarPostagens.filter((item) => item.codigo !== Number(id));
+                const newList = buscarPostagens.filter((item) => item.postagemId !== Number(id));
                 setBuscarPostagens(newList);
                 MySwal.fire("Deletado!", "Seu post foi deletado.", "success").then(r =>  {
                     if (r.isConfirmed || r.isDismissed) {
@@ -69,7 +68,7 @@ export default function MyProfile() {
   }
 
   function editarPost(id: string) {
-    const editedPost = buscarPostagens.find((item) => item.codigo === Number(id));
+    const editedPost = buscarPostagens.find((item) => item.postagemId === Number(id));
     if (editedPost) {
       setTitle(editedPost.titulo);
       setContent(editedPost.conteudo);
@@ -79,14 +78,14 @@ export default function MyProfile() {
 
   function salvarEdicao() {
     axios
-      .put("https://repositorio-privado-java-backend-production.up.railway.app/atualizarPostagem", {
+      .put("http://localhost:8080/atualizarPostagem", {
         codigo: editingId,
         titulo: title,
         conteudo: content,
       })
       .then(() => {
         const newList = buscarPostagens.map((item) => {
-          if (editingId !== null && item.codigo === Number(editingId)) {
+          if (editingId !== null && item.postagemId === Number(editingId)) {
             return { ...item, titulo: title, conteudo: content };
           }
           return item;
@@ -114,7 +113,7 @@ export default function MyProfile() {
 
   function cliqueiNoBotao() {
     axios
-      .post("https://repositorio-privado-java-backend-production.up.railway.app/criarPostagem", {
+      .post("https://auth-blog2-789b7266498f.herokuapp.com/criarPostagem", {
         titulo: title,
         conteudo: content,
       })
@@ -159,10 +158,10 @@ export default function MyProfile() {
         <h2 className="content-color">Meus Posts</h2>
         {buscarPostagens &&
           buscarPostagens.map((item) => (
-            <div key={item.codigo} className="post-content-type">
+            <div key={item.postagemId} className="post-content-type">
               <img src={capaPost} alt="Capa do post" className="img-post" />
               <div className="post-content-text">
-                {editingId !== null && Number(editingId) === item.codigo ? (
+                {editingId !== null && Number(editingId) === item.postagemId ? (
                   <div className="edit-form">
                     <input
                       name="postTitle"
@@ -205,13 +204,13 @@ export default function MyProfile() {
               <div className="post-content-actions">
                 <button
                   className="post-edit-button"
-                  onClick={() => editarPost(item.codigo.toString())}
+                  onClick={() => editarPost(item.postagemId.toString())}
                 >
                   Editar
                 </button>
                 <button
                   className="post-delete-button"
-                  onClick={() => deletarPost(item.codigo.toString())}
+                  onClick={() => deletarPost(item.postagemId.toString())}
                 >
                   Deletar
                 </button>

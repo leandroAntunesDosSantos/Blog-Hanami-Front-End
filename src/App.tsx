@@ -8,6 +8,9 @@ import AboutUsHome from "./routes/Home/AboutUsHome/AboutUsHome.tsx";
 import OnePostHome from "./routes/Home/OnePostHome/OnePostHome.tsx";
 import Profile from "./routes/Profile/Profile.tsx";
 import PostEdit from "./routes/Profile/PostEdit/PostEdit.tsx";
+import LoginLog from "./routes/Home/Login/LoginLog.tsx";
+
+
 
 
 export default function App() {
@@ -19,6 +22,8 @@ export default function App() {
                     <Route path="/allPostsHome" element={<AllPostsHome />}/>
                     <Route path="/aboutUs" element={<AboutUsHome />} />
                     <Route path="/contact" element={<ContactHome />} />
+                    <Route path="/login" element={<LoginLog />} />
+
                     <Route path="/onePostHome/:postId" element={<OnePostHome />} />
                 </Route>
                 <Route path="/profile" element={<Profile/>} >

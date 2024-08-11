@@ -81,7 +81,8 @@ export default function MyProfile() {
     setContent(event.target.value);
   }
 
-  function cliqueiNoBotao() {
+  function cliqueiNoBotao(event: { preventDefault: () => void; }) {
+    event.preventDefault();
     axios.post(`${BASE_URL}/posts`, {titulo: title, conteudo: content,},{
             headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
       }) .then(() => {

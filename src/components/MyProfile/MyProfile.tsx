@@ -101,6 +101,9 @@ export default function MyProfile() {
                 headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
         }).then(() => {
                 MySwal.fire("Post editado!", "Seu post foi editado com sucesso.", "success");
+                setTitle("");
+                setContent("");
+                setEditingId(null);
         }).catch((error) => {
             console.log(error);
         });

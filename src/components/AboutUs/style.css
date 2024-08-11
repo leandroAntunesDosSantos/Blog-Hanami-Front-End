@@ -1,4 +1,5 @@
 .about-us-container {
+    margin: 40px 20px;
     display: flex;
     flex-direction: column;
     gap: 20px; /* Espaçamento entre as seções */

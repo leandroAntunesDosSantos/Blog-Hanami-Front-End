@@ -1,13 +1,8 @@
-.containerAA {
-    min-height: 600px;
-}
-
-
-.container-login {
+.container-create-account {
     width: 100%;
     max-width: 400px;
     padding: 40px;
-    height: 500px;
+    height: 600px;
     border-radius: 10px;
     background-color: var(--primary-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -15,14 +10,16 @@
     margin: 20px auto;
 }
 
-.title-login {
+
+
+.title-create-account {
     text-align: center;
     color: var(--tertiary-color);
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
-.form-login {
+.form-create-account {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -43,9 +40,17 @@
     font-size: 1rem;
 }
 
-.btn-login {
-    width: 100%;
+.form-group label {
+    color: var(--tertiary-color);
+    font-size: 1rem;
+}
+
+
+.btn-register{
+    display: flex;
+    justify-content: center;
     padding: 10px;
+    margin: 20px 0;
     border: none;
     border-radius: 5px;
     background-color: var(--tertiary-color);
@@ -54,28 +59,30 @@
     cursor: pointer;
 }
 
-.btn-create{
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: green;
-    color: var(--primary-color);
-    font-size: 1rem;
-    cursor: pointer;
+.btn-login:hover {
+    background-color: var(--quaternary-color);
+    transition: background-color 0.3s;
 }
 
-
-.link-login {
+.link-create-account {
     text-align: center;
     color: var(--tertiary-color);
     font-size: 0.8rem;
     text-decoration: none;
 }
 
-.link-login:hover {
+.link-create-account:hover {
     text-decoration: underline;
+}
+
+/* Responsividade */
+
+@media (max-width: 992px) {
+    .container-create-account {
+        width: 100%;
+        padding: 20px;
+        height: auto;
+    }
 }
 
 

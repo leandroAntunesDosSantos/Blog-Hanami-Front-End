@@ -6,7 +6,7 @@ import "./style.css";
 export default function Contact() {
     return (
         <main className="contact-container">
-            <h1>Entre em Contato</h1>
+            <h1 className="contact-h1">Entre em Contato</h1>
             <div className="contact-person">
                 <h2>Leandro Antunes</h2>
                 <ul className="social-icons">
@@ -87,7 +87,7 @@ export default function Contact() {
                     </li>
                 </ul>
             </div>
-            <h1>Obrigado por entrar em contato!</h1>
+            <h1 className="contact-h1">Obrigado por entrar em contato!</h1>
         </main>
     )
 }

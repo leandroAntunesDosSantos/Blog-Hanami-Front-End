@@ -4,10 +4,10 @@ import { SetStateAction, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import axios from "axios";
-import { format, parseISO } from "date-fns"; // Importar o format e parseISO
+import { format, parseISO } from "date-fns";
+import {BASE_URL} from "../../utils/system.ts";
 
 const MySwal = withReactContent(Swal);
-
 
 interface PostByUser {
   postagemId: number;
@@ -17,7 +17,6 @@ interface PostByUser {
 }
 
 
-
 export default function MyProfile() {
   const [buscarPostagens, setBuscarPostagens] = useState<PostByUser[]>([]);
   const [title, setTitle] = useState("");
@@ -25,21 +24,21 @@ export default function MyProfile() {
   const [editingId, setEditingId] = useState<string | null>(null);
   //const userId = 1; // Id do usuário logado, ajustar conforme necessário
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8080/postsByUser")
-      .then((response) => {
-        const sortedPosts = response.data.feedItems.sort(
-          (a: PostByUser, b: PostByUser) =>
-            new Date(b.dataPostagem).getTime() -
-            new Date(a.dataPostagem).getTime()
-        );
-        setBuscarPostagens(sortedPosts);
-      })
-      .catch((error) => {
-        console.error("Erro ao buscar postagens:", error);
-      });
-  }, []);
+
+    useEffect(() => {
+             axios.get(BASE_URL + "/postsByUser", {
+                 headers: {
+                     'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),
+                 }
+             })
+            .then((response) => {
+                setBuscarPostagens(response.data.feedItems);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+
 
   function deletarPost(id: string) {
     MySwal.fire({
@@ -52,8 +51,9 @@ export default function MyProfile() {
       confirmButtonText: "Sim, deletar!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete("http://localhost:8080/deletarPostagem/" + id)
-            .then(() => {
+        axios.delete(`${BASE_URL}/posts/${id}`, {
+                headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
+        }).then(() => {
                 const newList = buscarPostagens.filter((item) => item.postagemId !== Number(id));
                 setBuscarPostagens(newList);
                 MySwal.fire("Deletado!", "Seu post foi deletado.", "success").then(r =>  {
@@ -61,41 +61,11 @@ export default function MyProfile() {
                         window.location.reload();
                     }
                 });
-            }
-            )
+        })
       }
     });
   }
 
-  function editarPost(id: string) {
-    const editedPost = buscarPostagens.find((item) => item.postagemId === Number(id));
-    if (editedPost) {
-      setTitle(editedPost.titulo);
-      setContent(editedPost.conteudo);
-      setEditingId(id);
-    }
-  }
-
-  function salvarEdicao() {
-    axios
-      .put("http://localhost:8080/atualizarPostagem", {
-        codigo: editingId,
-        titulo: title,
-        conteudo: content,
-      })
-      .then(() => {
-        const newList = buscarPostagens.map((item) => {
-          if (editingId !== null && item.postagemId === Number(editingId)) {
-            return { ...item, titulo: title, conteudo: content };
-          }
-          return item;
-        });
-        setBuscarPostagens(newList);
-        setTitle("");
-        setContent("");
-        setEditingId(null);
-      });
-  }
 
   function cancelarEdicao() {
     setTitle("");
@@ -112,18 +82,41 @@ export default function MyProfile() {
   }
 
   function cliqueiNoBotao() {
-    axios
-      .post("https://auth-blog2-789b7266498f.herokuapp.com/criarPostagem", {
-        titulo: title,
-        conteudo: content,
-      })
-      .then((response) => {
-        setBuscarPostagens([...buscarPostagens, response.data]);
-        setTitle("");
-        setContent("");
-        setEditingId(null);
-      });
-  }
+    axios.post(`${BASE_URL}/posts`, {titulo: title, conteudo: content,},{
+            headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
+      }) .then(() => {
+            MySwal.fire("Post criado!", "Seu post foi criado com sucesso.", "success").then(r => {
+                if (r.isConfirmed || r.isDismissed) {
+                    window.location.reload();
+                }
+            });
+      } )
+    }
+
+    function editarPost(id: string) {
+        const post = buscarPostagens.find((item) => item.postagemId === Number(id));
+        if (post) {
+            setTitle(post.titulo);
+            setContent(post.conteudo);
+            setEditingId(id);
+        }
+    }
+
+    function salvarEdicao() {
+      console.log(editingId);
+        axios.put(`${BASE_URL}/updatePost/${editingId}`, {titulo: title, conteudo: content}, {
+                headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
+        }).then(() => {
+                MySwal.fire("Post editado!", "Seu post foi editado com sucesso.", "success").then(r => {
+                    if (r.isConfirmed || r.isDismissed) {
+                        window.location.reload();
+                    }
+                });
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
 
   return (
     <section className="post-container">

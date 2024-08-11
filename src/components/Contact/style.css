@@ -1,13 +1,14 @@
 .contact-container {
     text-align: center; /* Centraliza todo o conteúdo */
     padding: 0 1rem; /* Padding para os lados */
+    min-height: 600px;
 }
 
-h1 {
+.contact-h1 {
     color: var(--tertiary-color);
     margin-bottom: 35px;
     margin-top: 35px;
-    font-size: 45px;
+    font-size: 35px;
 }
 
 .contact-person {

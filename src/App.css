@@ -52,6 +52,15 @@ header {
     margin: 0 auto;
 }
 
+/* .container {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 1rem; 
+    border: 1px solid red;
+} 
+*/
+
 /* Estilo para o artigo de boas-vindas */
 .article-welcome {
     display: flex;

@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { parseISO, format } from "date-fns";
+import {BASE_URL} from "../../utils/system.ts";
 
 interface Feed {
   postagemId: number;
   titulo: string;
   conteudo: string;
   dataPostagem: string;
-  nomeUsuario: string;
+  nameUser: string;
 }
 
 export default function OnePost() {
@@ -21,7 +22,7 @@ export default function OnePost() {
 
   useEffect(() => {
     axios
-      .get(`https://auth-blog2-789b7266498f.herokuapp.com/feed/${postId}`)
+      .get(`${BASE_URL}/feed/${postId}`)
       .then((response) => {
         setPostagem(response.data);
       })
@@ -54,7 +55,7 @@ export default function OnePost() {
                 Publicado em: {formatarData(postagem.dataPostagem)}
               </p>
               <p className={"post-date"}>
-                Criado por: {postagem.nomeUsuario}
+                Criado por: {postagem.nameUser}
               </p>
             </div>
           </div>

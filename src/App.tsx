@@ -9,8 +9,7 @@ import OnePostHome from "./routes/Home/OnePostHome/OnePostHome.tsx";
 import Profile from "./routes/Profile/Profile.tsx";
 import PostEdit from "./routes/Profile/PostEdit/PostEdit.tsx";
 import LoginLog from "./routes/Home/Login/LoginLog.tsx";
-
-
+import CreateAccountHome from "./routes/Home/CreateAccountHome/CreateAccountHome.tsx";
 
 
 export default function App() {
@@ -23,7 +22,7 @@ export default function App() {
                     <Route path="/aboutUs" element={<AboutUsHome />} />
                     <Route path="/contact" element={<ContactHome />} />
                     <Route path="/login" element={<LoginLog />} />
-
+                    <Route path="/createAccount" element={<CreateAccountHome />} />
                     <Route path="/onePostHome/:postId" element={<OnePostHome />} />
                 </Route>
                 <Route path="/profile" element={<Profile/>} >

@@ -12,12 +12,6 @@
     margin: 2rem 0;
 }
 
-.container {
-    width: 100%;
-    max-width: 1200px; /* Aumentar a largura máxima */
-    margin: 0 auto;
-    padding: 0 1rem; /* Adicionar padding nos lados para espaçamento */
-}
 
 #catalog-details {
     padding: 20px 0;
@@ -27,6 +21,7 @@
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    min-height: 500px;
 }
 
 .dsc-card {
@@ -86,15 +81,18 @@
     cursor: pointer;
     margin: 3rem 0;
 }
-
 .postado-em {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     margin-top: auto;
 }
-
 .data-publicacao {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.autor-publicacao {
     font-size: 0.9rem;
     color: #888;
 }

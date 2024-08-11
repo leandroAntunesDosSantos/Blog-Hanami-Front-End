@@ -1,6 +1,5 @@
 import {CLIENT_ID, CLIENT_SECRET} from "../utils/system.ts";
 import { CredentialsDTO } from "./auth.ts";
-import QueryString from "qs";
 import { requestBackend } from "../utils/requests.ts";
 import {AxiosRequestConfig} from "axios";
 
@@ -10,7 +9,7 @@ export function loginRequest(loginData: CredentialsDTO) {
         "Content-Type": "application/x-www-form-urlencoded",
         Authorization: "Basic " + window.btoa(CLIENT_ID + ":" + CLIENT_SECRET)
     };
-    const requestBody = QueryString.stringify({...loginData, grant_type: "password"});
+    const requestBody = JSON.stringify({ ...loginData, grant_type: "password" });
 
     const config:AxiosRequestConfig = {
         method: "POST",

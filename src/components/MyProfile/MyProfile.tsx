@@ -37,7 +37,7 @@ export default function MyProfile() {
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
+    }, [buscarPostagens]);
 
 
   function deletarPost(id: string) {
@@ -56,11 +56,7 @@ export default function MyProfile() {
         }).then(() => {
                 const newList = buscarPostagens.filter((item) => item.postagemId !== Number(id));
                 setBuscarPostagens(newList);
-                MySwal.fire("Deletado!", "Seu post foi deletado.", "success").then(r =>  {
-                    if (r.isConfirmed || r.isDismissed) {
-                        window.location.reload();
-                    }
-                });
+                MySwal.fire("Deletado!", "Seu post foi deletado.", "success");
         })
       }
     });
@@ -86,11 +82,7 @@ export default function MyProfile() {
     axios.post(`${BASE_URL}/posts`, {titulo: title, conteudo: content,},{
             headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
       }) .then(() => {
-            MySwal.fire("Post criado!", "Seu post foi criado com sucesso.", "success").then(r => {
-                if (r.isConfirmed || r.isDismissed) {
-                    window.location.reload();
-                }
-            });
+            MySwal.fire("Post criado!", "Seu post foi criado com sucesso.", "success");
       } )
     }
 
@@ -108,11 +100,7 @@ export default function MyProfile() {
         axios.put(`${BASE_URL}/updatePost/${editingId}`, {titulo: title, conteudo: content}, {
                 headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
         }).then(() => {
-                MySwal.fire("Post editado!", "Seu post foi editado com sucesso.", "success").then(r => {
-                    if (r.isConfirmed || r.isDismissed) {
-                        window.location.reload();
-                    }
-                });
+                MySwal.fire("Post editado!", "Seu post foi editado com sucesso.", "success");
         }).catch((error) => {
             console.log(error);
         });

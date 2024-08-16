@@ -55,8 +55,11 @@ export default function MyProfile() {
                 headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
         }).then(() => {
                 const newList = buscarPostagens.filter((item) => item.postagemId !== Number(id));
-                setBuscarPostagens(newList);
-                MySwal.fire("Deletado!", "Seu post foi deletado.", "success");
+                MySwal.fire("Deletado!", "Seu post foi deletado.", "success").then(r =>  {
+                    if (r.isConfirmed || r.isDismissed) {
+                      setBuscarPostagens(newList);
+                    }
+                });
         })
       }
     });
@@ -78,7 +81,7 @@ export default function MyProfile() {
   }
 
   function cliqueiNoBotao(event: { preventDefault: () => void; }) {
-    event.preventDefault();
+    event?.preventDefault();
     axios.post(`${BASE_URL}/posts`, {titulo: title, conteudo: content,},{
             headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
       }) .then(() => {
@@ -86,28 +89,26 @@ export default function MyProfile() {
       } )
     }
 
-    function editarPost(id: string) {
-        const post = buscarPostagens.find((item) => item.postagemId === Number(id));
-        if (post) {
-            setTitle(post.titulo);
-            setContent(post.conteudo);
-            setEditingId(id);
-        }
+  function editarPost(id: string) {
+    const post = buscarPostagens.find((item) => item.postagemId === Number(id));
+    if (post) {
+      setTitle(post.titulo);
+      setContent(post.conteudo);
+      setEditingId(id);
     }
+  }
 
-    function salvarEdicao() {
-      console.log(editingId);
-        axios.put(`${BASE_URL}/updatePost/${editingId}`, {titulo: title, conteudo: content}, {
-                headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
-        }).then(() => {
-                MySwal.fire("Post editado!", "Seu post foi editado com sucesso.", "success");
-                setTitle("");
-                setContent("");
-                setEditingId(null);
-        }).catch((error) => {
-            console.log(error);
+  function salvarEdicao() {
+    axios.put(`${BASE_URL}/posts/${editingId}`, {titulo: title, conteudo: content}, {
+        headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
+    }).then(() => {
+        MySwal.fire("Post editado!", "Seu post foi editado com sucesso.", "success").then(() => {
+            setTitle("");
+            setContent("");
+            setEditingId(null);
         });
-    }
+    });
+  }
 
 
   return (
@@ -143,7 +144,7 @@ export default function MyProfile() {
         <h2 className="content-color">Meus Posts</h2>
         {buscarPostagens &&
           buscarPostagens.map((item) => (
-            <div key={item.postagemId} className="post-content-type">
+            <div key={item.postagemId} className="post-content-type">   aqui é o card
               <img src={capaPost} alt="Capa do post" className="img-post" />
               <div className="post-content-text">
                 {editingId !== null && Number(editingId) === item.postagemId ? (

@@ -17,59 +17,14 @@
     padding: 20px 0;
 }
 
-.dsc-catalog-cards {
+.hanami-catalog-cards {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
     min-height: 500px;
 }
 
-.dsc-card {
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.dsc-catalog-card-top {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-
-.dsc-catalog-card-top img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-.dsc-catalog-card-bottom {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px 20px;
-    height: 100%;
-}
-
-.dsc-catalog-card-bottom h3 {
-    color: var(--sexagenary-color);
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.dsc-catalog-card-bottom p {
-    color: var(--quinquenary-color);
-    font-size: 16px;
-    margin-bottom: 10px;
-    flex-grow: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.dsc-btn-next-page {
+.hanami-btn-next-page {
     background-color: var(--quaternary-color);
     border: 1px solid var(--primary-color);
     padding: 10px;
@@ -81,21 +36,8 @@
     cursor: pointer;
     margin: 3rem 0;
 }
-.postado-em {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: auto;
-}
-.data-publicacao {
-    font-size: 0.9rem;
-    color: #888;
-}
 
-.autor-publicacao {
-    font-size: 0.9rem;
-    color: #888;
-}
+
 
 /* Responsividade */
 @media (max-width: 992px) {
@@ -108,22 +50,5 @@
     .container {
         padding: 0 1rem;
         max-width: 100%; /* Largura máxima para dispositivos menores */
-    }
-
-    .dsc-catalog-cards {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    }
-
-    .dsc-catalog-card-bottom h3 {
-        font-size: 18px;
-    }
-
-    .dsc-catalog-card-bottom p {
-        font-size: 14px;
-    }
-
-    .dsc-btn-next-page {
-        font-size: 14px;
-        padding: 8px;
     }
 }

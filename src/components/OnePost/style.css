@@ -2,6 +2,15 @@
     display: flex;
     text-align: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 500px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(202, 168, 168, 0.2);
 }
 
 .mb-3 {

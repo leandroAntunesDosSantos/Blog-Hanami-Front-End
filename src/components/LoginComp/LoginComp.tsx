@@ -5,6 +5,7 @@ import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
+import InputFormLogin from '../InputFormLogin/InputFormLogin.tsx';
 const MySwal = withReactContent(Swal);
 
 
@@ -45,23 +46,23 @@ export default function LoginComp() {
                 <h2 className="title-login">Login</h2>
                 <form className="form-login" onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                            placeholder={"Email"}
-                            onChange={event => setEmail(event.target.value)}
+                        <InputFormLogin 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder={"Email"} 
+                            onChange={event => setEmail(event.target.value)} 
+                            required={true}
                         />
                     </div>
                     <div className="form-group">
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            required
-                            placeholder={"Senha"}
-                            onChange={event => setPassword(event.target.value)}
+                        <InputFormLogin 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder={"Senha"} 
+                            onChange={event => setPassword(event.target.value)} 
+                            required={true}
                         />
                     </div>
                     <button className="btn-login" type='submit'>Entrar</button>

@@ -22,7 +22,9 @@
 }
 
 .img-post-individual {
-    width: 75%;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
 
 .post-title {

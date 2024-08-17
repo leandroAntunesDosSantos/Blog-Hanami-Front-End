@@ -7,6 +7,7 @@ import withReactContent from "sweetalert2-react-content";
 import {useNavigate} from "react-router-dom";
 const MySwal = withReactContent(Swal);
 
+
 export default function CreateAccount(){
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");

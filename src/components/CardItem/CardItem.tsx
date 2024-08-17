@@ -1,5 +1,5 @@
 import "./style.css";
-import capaPost from '../../assets/images/capa-post.jpg';
+import capaPost from '../../assets/images/tecnologia1.png';
 import { format, parseISO } from 'date-fns'
 
 

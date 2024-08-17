@@ -6,9 +6,14 @@ import { Link } from "react-router-dom";
 export default function HeaderClient() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    const verifyToken = localStorage.getItem('token');
+    console.log('TOKE',verifyToken);
+
 
     return (
         <header className={"header-client"}>
@@ -37,8 +42,7 @@ export default function HeaderClient() {
                         <Link to={"/contact"} onClick={() => setIsMenuOpen(false)}>Contato</Link>
                     </li>
                     <li className={"login-btn"}>
-                        <Link to={"/login"} onClick={() => setIsMenuOpen(false)}>Login</Link>
-                        
+                        {verifyToken ? <Link to={"/profile"} onClick={() => setIsMenuOpen(false)}>Perfil</Link> : <Link to={"/login"} onClick={() => setIsMenuOpen(false)}>Login</Link>}
                     </li>
                 </ul>
             </nav>

@@ -2,7 +2,7 @@ import './style.css';
 
 export default function AboutUs() {
     return (
-        <main className="about-us-container">
+        <div className="about-us-container">
             <div className="section about">
                 <h2>Bem-vindo ao Blog Hanami!</h2>
                 <p>O Blog Hanami é um espaço dedicado a compartilhar conhecimento, cultura e entretenimento. Inspirado
@@ -35,6 +35,6 @@ export default function AboutUs() {
                     compartilhar ou deseja sugerir um tópico, entre em contato conosco! Adoramos ouvir nossos leitores e
                     valorizar suas contribuições.</p>
             </div>
-        </main>
+        </div>
     )
 }

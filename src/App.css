@@ -8,10 +8,10 @@
 }
 
 :root {
-    --primary-color: #e4ebeb;
-    --secondary-color: #e0e0e0;
-    --tertiary-color: #f10fb8;
-    --quaternary-color: #f8cd20;
+    --primary-color: #ecf1f1;
+    --secondary-color: #f7f7f7;
+    --tertiary-color: #f70ff7;
+    --quaternary-color: #e6bc18;
     --quinquenary-color: #000;
     --sexagenary-color: #008000FF;
 }
@@ -31,8 +31,12 @@ a, a:hover {
 
 html, body {
     font-family: 'Noto Serif JP', serif;
-    background-color: #e8e8e8;
-    color: #fff;
+}
+
+body {
+    background-image: url('./assets/images/background3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 body section {
@@ -58,22 +62,9 @@ header {
     margin: 0 auto;
     padding: 0 1rem; 
     border: 1px solid red;
-} 
-*/
+}  */
 
-/* Estilo para o artigo de boas-vindas */
-.article-welcome {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: var(--primary-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: "Playwrite CO", cursive;
-}
+
 
 /* Consultas de mídia para responsividade */
 @media (max-width: 1200px) {
@@ -83,28 +74,22 @@ header {
 }
 
 @media (max-width: 992px) {
-    .article-welcome {
-        margin: 15px;
-        padding: 15px;
+    .container {
+        max-width: 960px;
     }
+   
 }
 
 @media (max-width: 768px) {
-    .article-welcome {
-        margin: 10px;
-        padding: 10px;
+    .container {
+        max-width: 100%;
     }
+   
 }
 
 @media (max-width: 576px) {
     .container {
         max-width: 100%;
-    }
-
-    .article-welcome {
-        margin: 5px;
-        padding: 5px;
-        font-size: 14px;
     }
 }
 

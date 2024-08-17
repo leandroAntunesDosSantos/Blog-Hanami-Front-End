@@ -1,7 +1,7 @@
 import MyProfile from "../../../components/MyProfile/MyProfile.tsx";
 
 
-export default function PostEdit() {
+export default function ProfilePage() {
     return (
             <MyProfile />
     )

@@ -1,4 +1,4 @@
-import capaPost from "../../assets/images/capa-post.jpg";
+import capaPost from "../../assets/images/tecnologia1.png";
 import "./style.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -41,7 +41,7 @@ export default function OnePost() {
       <main className={"container"}>
         <section className={"container-one-post"}>
           <div className="post-card">
-            <div className={"mt-3 mb-3"}>
+            <div >
               <img
                 src={capaPost}
                 alt="Capa do post"

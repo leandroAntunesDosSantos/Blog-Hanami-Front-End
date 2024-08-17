@@ -4,6 +4,7 @@ export type postDto = {
     titulo: string;
     conteudo: string;
     dataPostagem: string;
+    nameUser: string;
 }
 
 

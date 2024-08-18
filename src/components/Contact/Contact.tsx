@@ -1,6 +1,10 @@
+import "./style.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import "./style.css";
+import fotoLeandro from "../../assets/images/leandro_perfil.jfif";
+import fotoNayara from "../../assets/images/nayara-perfil.webp";
+import fotoMariana from "../../assets/images/mariana_perfil.webp";
+
 
 export default function ContactHome() {
     const contacts = [
@@ -10,7 +14,7 @@ export default function ContactHome() {
             whatsapp: "4599999999",
             linkedin: "https://www.linkedin.com/in/leandrosantosjs/",
             github: "https://github.com/leandroAntunesDosSantos/",
-            photo: "src/assets/images/leandro_perfil.jfif"
+            photo: fotoLeandro
         },
         {
             index: 2,
@@ -18,7 +22,7 @@ export default function ContactHome() {
             whatsapp: "4599999999",
             linkedin: "https://www.linkedin.com/in/nayarabpereira/",
             github: "https://github.com/nxyara/",
-            photo: "src/assets/images/nayara-perfil.webp"
+            photo: fotoNayara
         },
         {
             index: 3,
@@ -26,7 +30,7 @@ export default function ContactHome() {
             whatsapp: "4599999999",
             linkedin: "https://www.linkedin.com/in/mariana-moreira-ti/",
             github: "https://github.com/mari-moreira/",
-            photo: "src/assets/images/mariana_perfil.webp"
+            photo: fotoMariana
         },
         {
             index: 4,
@@ -34,7 +38,7 @@ export default function ContactHome() {
             whatsapp: "4599999999",
             linkedin: "https://www.linkedin.com/in/maria-viana-688166230/",
             github: "https://github.com/Marian97a",
-            photo: "src/assets/images/maria_perfil.png"
+            photo: fotoMariana
         }
     ];
 

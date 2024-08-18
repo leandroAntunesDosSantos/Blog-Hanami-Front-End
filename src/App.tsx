@@ -2,9 +2,9 @@ import "./App.css"
 
 import Home from "./routes/Home/Home.tsx";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import ContactHome from "./routes/Home/ContactHome/ContactHome.tsx";
+import ContactHome from "./components/Contact/Contact.tsx";
 import AllPostsHome from "./routes/Home/AllPostsHome/AllPostsHome.tsx";
-import AboutUsHome from "./routes/Home/AboutUsHome/AboutUsHome.tsx";
+import AboutUsHome from "./components/AboutUs/AboutUs.tsx";
 import OnePostHome from "./routes/Home/OnePostHome/OnePostHome.tsx";
 import Profile from "./routes/Profile/Profile.tsx";
 import LoginLog from "./routes/Home/Login/LoginLog.tsx";

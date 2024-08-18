@@ -28,7 +28,7 @@ export default function OnePost() {
       })
       .catch((error) => {
         console.log(error);
-      });
+      }); 
   }, [postId]);
 
   const formatarData = (dataISO: string) => {

@@ -137,39 +137,3 @@ export default function MaintenancePost() {
         </main>
     )
 }
-
-
-// function editarPost(id: string) {
-//     const post = buscarPostagens.find((item) => item.postagemId === Number(id));
-//     if (post) {
-//       setTitle(post.titulo);
-//       setContent(post.conteudo);
-//       setEditingId(id);
-//     }
-//   }
-
-//   function salvarEdicao() {
-//     axios.put(`${BASE_URL}/posts/${editingId}`, {titulo: title, conteudo: content}, {
-//         headers: {'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token') || '{}'),}
-//     }).then(() => {
-//         MySwal.fire("Post editado!", "Seu post foi editado com sucesso.", "success").then(() => {
-//             setTitle("");
-//             setContent("");
-//             setEditingId(null);
-//         });
-//     });
-//   }
-
-//   function pegarTitulo(event: { target: { value: SetStateAction<string>; }; }) {
-//     setTitle(event.target.value);
-//   }
-
-//   function pegarConteudo(event: { target: { value: SetStateAction<string>; }; }) {
-//     setContent(event.target.value);
-//   }
-
-//   function cancelarEdicao() {
-//     setTitle("");
-//     setContent("");
-//     setEditingId(null);
-//   }

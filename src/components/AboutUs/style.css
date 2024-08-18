@@ -1,44 +1,44 @@
 .about-us-container {
-    margin: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Espaçamento entre as seções */
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Noto Serif JP', serif;
+    color: #333;
 }
 
 .section {
-    padding: 50px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
 }
 
-.about-us-list {
+.section-title {
+    font-size: 1.8em;
+    color: var(--tertiary-color);
+    margin-bottom: 10px;
+    text-align: center;
+}
+.section-title h2{
+    color: var(--tertiary-color);
+}
+
+.section-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.content-list {
     list-style-type: none;
     padding-left: 0;
 }
 
-.about-us-list li {
+.content-list li {
     margin-bottom: 10px;
-    color: var(--tertiary-color); /* Aplicando a cor apenas nos li da about-us-list */
 }
 
-strong {
-    color: #333;
-}
-
-span {
+.content-list strong {
     color: var(--tertiary-color);
 }
 
-h2 {
-    color: var(--tertiary-color); /* Aplicando a cor do texto definida na variável CSS */
-    text-align: center;
-}
-
-p {
-    color: #333; /* Cor padrão para parágrafos */
-}
-
-.join {
-    background-color: #f9f9f9;
+.content-list span {
+    color: #333;
 }

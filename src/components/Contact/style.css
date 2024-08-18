@@ -1,64 +1,148 @@
 .contact-container {
-    text-align: center; /* Centraliza todo o conteúdo */
-    padding: 0 1rem; /* Padding para os lados */
-    min-height: 600px;
-}
-
-.contact-h1 {
-    color: var(--tertiary-color);
-    margin-bottom: 35px;
-    margin-top: 35px;
-    font-size: 35px;
-}
-
-.contact-person {
-    display: inline-block;
-    width: 250px; /* Largura do box de cada pessoa */
-    background-color: #f9f9f9; /* Cor de fundo do box */
+    width: 80%;
+    margin: 0 auto;
     padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px var(--tertiary-color); /* Sombra suave */
-    vertical-align: top; /* Alinhamento vertical para inline-block */
+    font-family: 'Playwright CO', serif;
+    color: #333;
+    text-align: center;
 }
 
-.contact-person h2 {
-    font-family: 'Arial', sans-serif; /* Estilo moderno para o nome */
-    color: var(--tertiary-color); /* Cor do texto */
-    margin-bottom: 10px; /* Espaçamento abaixo do nome */
+.contact-container h1 {
+    font-size: 3em;
+    color: var(--tertiary-color);
+    margin-bottom: 20px;
 }
 
-.social-icons {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    justify-items: center;
+}
+
+/* Estilo para cada pessoa no contato */
+.contact-person {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza os ícones verticalmente */
+    align-items: center;
+    background-color: var(--sexagenary-color); /* Cor de fundo ajustada */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, padding 0.3s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.contact-person:hover {
+    transform: scale(1.05);
+}
+
+/* Foto de contato com animação */
+.contact-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--quaternary-color);
+    transition: opacity 0.2s, transform 0.2s;
+    /* Animação de movimento aplicada diretamente */
+    animation: movePhoto 3s ease-in-out infinite; 
+}
+
+/* Animação de movimento para a foto */
+@keyframes movePhoto {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Informações de contato */
+.contact-info {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+.contact-person:hover .contact-info {
+    opacity: 1;
+}
+
+/* Estilo do nome */
+.contact-person h2 {
+    font-size: 1.5em;
+    color: var(--tertiary-color);
+    margin-bottom: 10px;
+}
+
+/* Ícones sociais */
+.social-icons {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .social-icons li {
-    margin: 10px 0; /* Espaçamento entre os ícones */
+    margin: 0;
 }
 
 .social-icons a {
-    color: #333; /* Cor do texto dos links */
-    text-decoration: none; /* Remove sublinhado dos links */
-    transition: color 0.3s; /* Transição suave na cor ao passar o mouse */
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
 }
 
 .social-icons a:hover {
-    color: var(--tertiary-color); /* Cor ao passar o mouse */
+    color: var(--quaternary-color);
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+.icon.whatsapp {
+    color: #25d366;
+}
+
+.icon.linkedin {
+    color: #0077b5;
+}
+
+.icon.github {
+    color: #333;
+}
+
+/* Estilo do h1 "Obrigado por entrar em contato!" */
+.thank-you-message {
+    margin-top: 40px;
+    font-size: 2em;
+    color: var(--tertiary-color);
 }
 
 /* Responsividade */
-@media (max-width: 767px) {
-    .contact-person {
-        width: 100%; /* Ocupar toda a largura da tela */
-        margin-bottom: 20px; /* Espaçamento abaixo de cada pessoa */
-    }
-
-    h1 {
-        font-size: 35px; /* Diminuir o tamanho do título em telas menores */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 }

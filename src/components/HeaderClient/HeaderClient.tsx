@@ -8,24 +8,32 @@ export default function HeaderClient() {
     const [isLogged, setIsLogged] = useState(false);
 
 
+
+    
+
+    const expire = window.localStorage.getItem("expiresIn");
+
+    
+
     useEffect(() => {
-        const token = JSON.parse(localStorage.getItem("token") || '{}');
-        if (token) {
-            setIsLogged(true);
-        } else {
-            setIsLogged(false);
+        if (expire) {
+            const expireDate = new Date(JSON.parse(expire));
+            console.log(expireDate);
+            const currentDate = new Date();
+            console.log(currentDate);
+            if (currentDate < expireDate) {
+                setIsLogged(true);
         }
-    }, []);
+    }
+    }, [expire]);
 
-
+    
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
     const verifyToken = isLogged;
    
-
-
     return (
         <header className={"header-client"}>
             <nav className="nav-bar">

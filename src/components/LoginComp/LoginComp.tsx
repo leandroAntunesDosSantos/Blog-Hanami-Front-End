@@ -23,6 +23,8 @@ export default function LoginComp() {
             password: password
         }).then(response => {
             window.localStorage.setItem("token", JSON.stringify(response.data.acessToken));
+            window.localStorage.setItem("expiresIn", JSON.stringify(response.data.expiresIn));
+            console.log(response.data.expiresIn);
             navigate("/profile");
         }).catch(() => {
             MySwal.fire({

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import logoImg from "../../assets/images/logo-hanami.jpg";
 import './style.css';
 import { Link } from "react-router-dom";

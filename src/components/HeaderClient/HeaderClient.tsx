@@ -5,14 +5,25 @@ import { Link } from "react-router-dom";
 
 export default function HeaderClient() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isLogged, setIsLogged] = useState(false);
+
+
+    useEffect(() => {
+        const token = JSON.parse(localStorage.getItem("token") || '{}');
+        if (token) {
+            setIsLogged(true);
+        } else {
+            setIsLogged(false);
+        }
+    }, []);
 
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const verifyToken = localStorage.getItem('token');
-    console.log('TOKE',verifyToken);
+    const verifyToken = isLogged;
+   
 
 
     return (

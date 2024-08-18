@@ -4,6 +4,7 @@ import { faWhatsapp, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-i
 import fotoLeandro from "../../assets/images/leandro_perfil.jfif";
 import fotoNayara from "../../assets/images/nayara-perfil.webp";
 import fotoMariana from "../../assets/images/mariana_perfil.webp";
+import fotoMaria from "../../assets/images/maria_perfil.png";
 
 
 export default function ContactHome() {
@@ -38,7 +39,7 @@ export default function ContactHome() {
             whatsapp: "4599999999",
             linkedin: "https://www.linkedin.com/in/maria-viana-688166230/",
             github: "https://github.com/Marian97a",
-            photo: fotoMariana
+            photo: fotoMaria
         }
     ];
 

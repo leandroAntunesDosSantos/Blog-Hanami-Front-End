@@ -7,22 +7,17 @@ export default function HeaderClient() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
 
-
-
-    
-
     const expire = window.localStorage.getItem("expiresIn");
-
-    
 
     useEffect(() => {
         if (expire) {
             const expireDate = new Date(JSON.parse(expire));
-            console.log(expireDate);
             const currentDate = new Date();
-            console.log(currentDate);
             if (currentDate < expireDate) {
                 setIsLogged(true);
+        } else {
+            setIsLogged(false);
+            localStorage.clear();
         }
     }
     }, [expire]);

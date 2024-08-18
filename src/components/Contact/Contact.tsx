@@ -5,6 +5,7 @@ import "./style.css";
 export default function ContactHome() {
     const contacts = [
         {
+            index: 1,
             name: "Leandro Antunes",
             whatsapp: "4599999999",
             linkedin: "https://www.linkedin.com/in/leandrosantosjs/",
@@ -12,6 +13,7 @@ export default function ContactHome() {
             photo: "src/assets/images/leandro_perfil.jfif"
         },
         {
+            index: 2,
             name: "Nayra Brito",
             whatsapp: "4599999999",
             linkedin: "https://www.linkedin.com/in/nayarabpereira/",
@@ -19,6 +21,7 @@ export default function ContactHome() {
             photo: "src/assets/images/nayara-perfil.webp"
         },
         {
+            index: 3,
             name: "Mariana Moreira",
             whatsapp: "4599999999",
             linkedin: "https://www.linkedin.com/in/mariana-moreira-ti/",
@@ -26,6 +29,7 @@ export default function ContactHome() {
             photo: "src/assets/images/mariana_perfil.webp"
         },
         {
+            index: 4,
             name: "Maria Viana",
             whatsapp: "4599999999",
             linkedin: "https://www.linkedin.com/in/maria-viana-688166230/",
@@ -38,8 +42,8 @@ export default function ContactHome() {
         <section className="contact-container">
             <h1>Entre em Contato</h1>
             <div className="contact-grid">
-                {contacts.map((person, index) => (
-                    <div key={index} className="contact-person">
+                {contacts.map((person) => (
+                    <div key={person.index} className="contact-person">
                         <img src={person.photo} alt={person.name} className="contact-photo" />
                         <div className="contact-info">
                             <h2>{person.name}</h2>

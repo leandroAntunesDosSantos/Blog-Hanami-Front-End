@@ -38,6 +38,15 @@
     font-size: 1.2rem;
 }
 
+.button-exit {
+    background-color: var(--secondary-color);
+    color: black;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 /* Responsividade */
 @media (max-width: 767px) {
     .nav-bar-profile {

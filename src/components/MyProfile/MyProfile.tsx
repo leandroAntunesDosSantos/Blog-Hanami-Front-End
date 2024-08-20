@@ -29,11 +29,11 @@ export default function MyProfile() {
       <h1 className="title-main mt20 mb20">
         Olá, {name}! Aqui estão os seus posts:
       </h1>
-      <Link to="/profile/posts" className="btn btn-primary">
+      <Link to="/profile/posts" className="btn-new-post">
         Criar novo post
       </Link>
       <div className="hanami-catalog-cards mb20 mt20">
-        {findPosts.map((item) => (
+        {findPosts.length > 0 ? findPosts.map((item) => (
           <Link to={`/profile/${item.postagemId}`} key={item.postagemId}>
             <CardItem
               postagemId={item.postagemId}
@@ -43,7 +43,7 @@ export default function MyProfile() {
               nameUser={item.nameUser}
             />
           </Link>
-        ))}
+        )) : <h1>Carregando...</h1>}
       </div>
     </main>
 

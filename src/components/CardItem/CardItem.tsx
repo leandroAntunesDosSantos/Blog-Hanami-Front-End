@@ -21,7 +21,6 @@ export default function CardItem(props: CardItemProps) {
     return format(dataConvertida, "dd/MM/yyyy");
   };
 
-  
 
   return (
     <div className="dsc-card">

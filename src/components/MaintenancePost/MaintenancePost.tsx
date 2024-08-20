@@ -109,7 +109,7 @@ export default function MaintenancePost() {
                             alt="Capa do post"
                         />
                     </div>
-                    <div>
+                    <div className="edit-section">
                         <input
                             type="text"
                             className={"input-maintenance-post"}
@@ -125,12 +125,12 @@ export default function MaintenancePost() {
                         />
                         <div className={'buttons-edit'}>
                             <button className={"btn btn-primary"} onClick={editarPost}>
-                            Editar post
+                                Editar post
                             </button>
                             <button className={"btn btn-danger"} onClick={deletarPost}>
-                            Deletar post
+                                Deletar post
                             </button>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

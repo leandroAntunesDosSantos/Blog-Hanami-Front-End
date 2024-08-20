@@ -25,15 +25,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--sexagenary-color); /* Cor de fundo ajustada */
+    background-color: var(--tertiary-color); /* Cor de fundo ajustada */
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
     transition: transform 0.3s, padding 0.3s;
     width: 100%;
     max-width: 300px;
+    box-shadow: 0 0 12px var(--quinquenary-color);
 }
 
 .contact-person:hover {
@@ -46,7 +47,7 @@
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--quaternary-color);
+    box-shadow: 0 0 22px var( --quinquenary-color);
     transition: opacity 0.2s, transform 0.2s;
     /* Animação de movimento aplicada diretamente */
     animation: movePhoto 3s ease-in-out infinite; 
@@ -75,9 +76,10 @@
     transition: opacity 0.3s;
     text-align: center;
     width: 100%;
-    padding: 10px;
+    padding: 18px;
     background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
+    border-radius: 18px;
+    box-shadow: 0 0 22px var(--quinquenary-color);
 }
 
 .contact-person:hover .contact-info {

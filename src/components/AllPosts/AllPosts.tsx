@@ -35,7 +35,7 @@ export default function AllPosts() {
 
   function nextPage() {
     axios
-      .get(BASE_URL + "/feed" + `?page=${page}&size=12&titulo=${search}`)
+      .get(BASE_URL + "/feed" + `?page=${page}&size=12&titulo=${search}&sort=dataPostagem,desc`)
       .then((response) => {
         setBuscarPostagens([...buscarPostagens, ...response.data.content]);
         setPage(page + 1);
@@ -47,14 +47,16 @@ export default function AllPosts() {
   }
 
   useEffect(() => {
-    axios.get(BASE_URL + "/feed" + `?page=0&size=12`).then((response) => {
+    axios.get(BASE_URL + "/feed" + `?page=0&size=12&sort=dataPostagem,desc`).then((response) => {
       setBuscarPostagens(response.data.content);
       setPage(1);
       if (response.data.last) {
         setIsLastPage(true);
       }
-    });
-  }, []);
+    }
+    );
+  }
+  , []);
 
   return (
     <main id="catalog-details" className="container">

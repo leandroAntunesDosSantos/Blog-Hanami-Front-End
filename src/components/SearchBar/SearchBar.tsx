@@ -25,12 +25,12 @@ export default function SearchBar({ onSearch }: Props) {
 
     return (
 
-        <form className="dsc-search-bar" onSubmit={handleSubmit}>
+        <form className="hanami-search-bar" onSubmit={handleSubmit}>
             <button type="submit">🔎︎</button>
             <input
             value={text}
                 type="text"
-                placeholder="Buscar Post" 
+                placeholder="Digite o titulo do Post" 
                 onChange={handleChange}
             />
             <button onClick={handleResetClick}>🗙</button>

@@ -16,48 +16,46 @@ interface Feed {
 export default function AllPosts() {
   const [buscarPostagens, setBuscarPostagens] = useState<Feed[]>([]);
   const [isLastPage, setIsLastPage] = useState(false);
+  const [page, setPage] = useState(0);
   const [search, setSearch] = useState("");
 
- 
-  useEffect(() => {
+
+  function handleSearch(search: string) {
+    setSearch(search);
     axios
-      .get(BASE_URL + "/feed" + "?page=0&size=12")
+      .get(BASE_URL + "/feed" + `?page=0&size=12&titulo=${search}`)
       .then((response) => {
         setBuscarPostagens(response.data.content);
-      })
-      .catch((error) => {
-        console.log(error);
+        setPage(1);
+        if (response.data.last) {
+          setIsLastPage(true);
+        }
       });
   }
-  , [search]);
-
-  const [page, setPage] = useState(1);
 
   function nextPage() {
-    if (isLastPage) return;
     axios
-      .get(BASE_URL + "/feed" + `?page=${page}&size=12`)
+      .get(BASE_URL + "/feed" + `?page=${page}&size=12&titulo=${search}`)
       .then((response) => {
         setBuscarPostagens([...buscarPostagens, ...response.data.content]);
         setPage(page + 1);
         if (response.data.last) {
           setIsLastPage(true);
         }
-      })
+      }
+    );
   }
 
-  function handleSearch(text: string) {
-    setSearch(text);
-    axios
-      .get(BASE_URL + "/feed" + `?page=0&size=12&search=${text}`)
-      .then((response) => {
-        setBuscarPostagens(response.data.content);
-        if (response.data.last) {
-          setIsLastPage(true);
-        }
-      })
-  }
- 
+  useEffect(() => {
+    axios.get(BASE_URL + "/feed" + `?page=0&size=12`).then((response) => {
+      setBuscarPostagens(response.data.content);
+      setPage(1);
+      if (response.data.last) {
+        setIsLastPage(true);
+      }
+    });
+  }, []);
+
   return (
     <main id="catalog-details" className="container">
       <h1 className="title-main mt20 mb20">

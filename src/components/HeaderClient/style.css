@@ -1,8 +1,10 @@
+/* Estilização do logo */
 .logo-hanami {
     width: 50px;
     height: 50px;
 }
 
+/* Estilos da barra de navegação */
 .nav-bar {
     display: flex;
     justify-content: space-between;
@@ -24,56 +26,61 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--tertiary-color);
+    transition: color 0.3s;
 }
 
+.nav-brand h1:hover {
+    color: var(--quaternary-color);
+}
+
+/* Estilos da lista de navegação */
 .nav-list-client {
     display: flex;
     align-items: center;
     gap: 2rem;
     list-style: none;
     color: var(--tertiary-color);
-    text-decoration: none;
     font-size: 1.2rem;
-}
-
-.nav-list-client li {
-    transition: opacity 0.3s; /* Adicione transição para suavizar a animação */
+    transition: color 0.3s;
 }
 
 .nav-list-client li:hover {
     color: var(--quaternary-color);
-    transition: color 0.3s;
 }
 
+/* Estilo do botão de login */
 .login-btn {
-    background-color: black;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 700;
+    background-color: transparent;
+    border: 3px solid var(--tertiary-color);
+    padding: 3px 11px;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: 760;
+    color: var(--tertiary-color);
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Botão do menu para telas menores */
+.login-btn:hover {
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+}
+
+/* Botão do menu hamburguer para telas menores */
 .menu-btn {
-    display: none; /* Inicia escondido e será visível apenas em telas menores */
-    background-color: black;
-    color: white;
+    display: none;
+    background-color: transparent;
+    color: var(--tertiary-color);
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     cursor: pointer;
 }
 
 .menu-btn:hover {
-    background-color: #333;
+    color: var(--quaternary-color);
 }
 
-/* Responsividade */
+/* Estilos responsivos */
 @media (max-width: 992px) {
     .nav-bar {
         flex-direction: column;
@@ -82,26 +89,19 @@
     }
 
     .nav-list-client {
+        display: none;
         flex-direction: column;
         gap: 1rem;
         width: 100%;
         align-items: flex-start;
-        padding-left: 0; /* Ajuste o padding conforme necessário */
     }
 
-    .nav-list-client li {
-        width: 100%;
-        text-align: left;
-        opacity: 1; /* Garante que os itens da lista são visíveis */
-    }
-
-    .nav-list-client.open li {
-        display: none; /* Oculta os itens da lista quando o menu está aberto */
+    .nav-list-client.open {
+        display: flex;
     }
 
     .menu-btn {
-        display: block; /* Exibe o botão do menu em telas menores */
-        margin-top: 1rem; /* Adicione um espaço entre o botão e a lista de navegação */
+        display: block;
     }
 }
 
@@ -116,16 +116,11 @@
 
     .nav-list-client {
         font-size: 1rem;
-        gap: 1rem;
     }
 
     .login-btn {
         font-size: 16px;
         padding: 8px 16px;
-    }
-
-    .menu-btn {
-        padding: 8px 16px; /* Ajuste o padding para telas menores */
     }
 }
 
@@ -146,9 +141,5 @@
     .login-btn {
         font-size: 14px;
         padding: 6px 12px;
-    }
-
-    .menu-btn {
-        padding: 6px 12px; /* Ajuste o padding para telas menores */
     }
 }

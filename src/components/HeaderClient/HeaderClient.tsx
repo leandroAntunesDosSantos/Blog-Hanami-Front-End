@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import logoImg from "../../assets/images/logo-hanami.jpg";
 import './style.css';
 import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from 'react-icons/fa';  // Importa ícones para o menu hamburguer
 
 export default function HeaderClient() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,20 +16,19 @@ export default function HeaderClient() {
             const currentDate = new Date();
             if (currentDate < expireDate) {
                 setIsLogged(true);
-        } else {
-            setIsLogged(false);
-            localStorage.clear();
+            } else {
+                setIsLogged(false);
+                localStorage.clear();
+            }
         }
-    }
     }, [expire]);
 
-    
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
     const verifyToken = isLogged;
-   
+
     return (
         <header className={"header-client"}>
             <nav className="nav-bar">
@@ -39,9 +39,9 @@ export default function HeaderClient() {
                     </div>
                 </Link>
 
-                {/* Botão do menu para telas menores */}
+                {/* Botão do menu hamburguer para telas menores */}
                 <button className="menu-btn" onClick={toggleMenu}>
-                    Menu
+                    {isMenuOpen ? <FaTimes /> : <FaBars />}  {/* Alterna entre ícone de abrir e fechar */}
                 </button>
 
                 {/* Lista de navegação para telas maiores */}
@@ -61,5 +61,5 @@ export default function HeaderClient() {
                 </ul>
             </nav>
         </header>
-    )
+    );
 }

@@ -21,8 +21,13 @@
 
 .nav-brand-profile h1 {
     font-family: 'Noto Serif JP', serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
+    transition: color 0.3s;
+}
+
+.nav-brand-profile h1:hover {
+    color: var(--quaternary-color);
 }
 
 .nav-list {
@@ -36,15 +41,28 @@
     color: var(--primary-color);
     text-decoration: none;
     font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+    color: var(--quaternary-color);
 }
 
 .button-exit {
-    background-color: var(--secondary-color);
-    color: black;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    padding: 3px 11px;
+    border-radius: 9px;
+    font-size: 22px;
+    font-weight: 760;
+    color: var(--primary-color);
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-exit:hover {
+    background-color: var(--quaternary-color);
+    color: var(--primary-color);
 }
 
 /* Responsividade */

@@ -1,7 +1,7 @@
 import "./style.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import fotoLeandro from "../../assets/images/leandro_perfil.jfif";
+import fotoLeandro from "../../assets/images/leandro_perfil.jpg";
 import fotoNayara from "../../assets/images/nayara-perfil.webp";
 import fotoMariana from "../../assets/images/mariana_perfil.webp";
 import fotoMaria from "../../assets/images/maria_perfil.png";
@@ -12,7 +12,7 @@ export default function ContactHome() {
         {
             index: 1,
             name: "Leandro Antunes",
-            whatsapp: "4599999999",
+            whatsapp: "45998550854",
             linkedin: "https://www.linkedin.com/in/leandrosantosjs/",
             github: "https://github.com/leandroAntunesDosSantos/",
             photo: fotoLeandro
